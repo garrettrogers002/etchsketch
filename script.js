@@ -17,7 +17,10 @@ function loadthing () {
         cont.appendChild(row);
     }
 }
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
     loadthing();
     console.log("boop");
+})
+cont.addEventListener("mouseover", function (e) {
+    e.target.style.backgroundColor = "blue";
 })
