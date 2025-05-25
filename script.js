@@ -3,7 +3,6 @@ const cont = document.querySelector("#container");
 let gridSize = 16;
 let boxSize = 900 / gridSize;
 let newBtn = document.querySelector("#newBtn");
-console.log("beep");
 
 function loadthing () {
     for (let i = 0; i < gridSize; i++) {
@@ -20,9 +19,6 @@ function loadthing () {
     }
 }
 function changeGridSize (input) {
-    let newGridSize = input;
-    
-    console.log(input);
     cont.innerHTML = "";
     gridSize = input;
     boxSize = 900 / gridSize;
@@ -30,7 +26,6 @@ function changeGridSize (input) {
 }
 document.addEventListener("DOMContentLoaded", function () {
     loadthing();
-    console.log("boop");
 })
 cont.addEventListener("mouseover", function (e) {
     e.target.style.backgroundColor = "blue";
