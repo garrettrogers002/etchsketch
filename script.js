@@ -6,16 +6,17 @@ let newBtn = document.querySelector("#newBtn");
 
 function loadthing () {
     for (let i = 0; i < gridSize; i++) {
-        let row = document.createElement("div");
+        let column = document.createElement("div");
+        column.classList.add("column");
         for (let j = 0; j < gridSize; j++) {
             let beep = document.createElement("div");
             beep.style.width = boxSize + "px";
             beep.style.height = boxSize + "px";
             beep.classList.add("gridBox");
             beep.style.backgroundColor = "white";
-            row.appendChild(beep);
+            column.appendChild(beep);
         }
-        cont.appendChild(row);
+        cont.appendChild(column);
     }
 }
 function changeGridSize (input) {
@@ -33,11 +34,11 @@ cont.addEventListener("mouseover", function (e) {
 newBtn.addEventListener("mousedown", function () {
     function number(thing) {
         if (thing > 100) {
-            number(parseInt(prompt("please enter a number less than 100: ", "85")));
+            return number(parseInt(prompt("please enter a number less than 100: ", "85")));
         } else if (thing <= 0) {
-            number(parseInt(prompt("please enter a number above 0: ", "57")));
+            return number(parseInt(prompt("please enter a number above 0: ", "57")));
         } else {
-            return parseInt(thing);
+            return thing;
         }
     }
     doop = number(parseInt(prompt("enter in new grid size: ", "50")));
