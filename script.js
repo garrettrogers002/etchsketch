@@ -20,22 +20,8 @@ function loadthing () {
     }
 }
 function changeGridSize (input) {
-    let newGridSize;
-    if (input === undefined) {
-        newGridSize = prompt("Enter new grid size: ", "50");
-        if (parseInt(newGridSize) > 100) {
-            let again = prompt("Enter a new grid size less than 100: ", "99");
-            changeGridSize(again);
-        } else if (parseInt(input) > 100) {
-            let again = prompt("Please enter a number less than 100: ", "60");
-            changeGridSize(again)
-        }
-        else if (parseInt(input) <= 0) {
-            console.log("what")
-            let again = prompt("please enter a number above 0: ", "37");
-            changeGridSize(again);
-        }
-    } 
+    let newGridSize = input;
+    
     console.log(input);
     cont.innerHTML = "";
     gridSize = input;
@@ -50,5 +36,15 @@ cont.addEventListener("mouseover", function (e) {
     e.target.style.backgroundColor = "blue";
 })
 newBtn.addEventListener("mousedown", function () {
-    changeGridSize();
+    function number(thing) {
+        if (thing > 100) {
+            number(parseInt(prompt("please enter a number less than 100: ", "85")));
+        } else if (thing <= 0) {
+            number(parseInt(prompt("please enter a number above 0: ", "57")));
+        } else {
+            return parseInt(thing);
+        }
+    }
+    doop = number(parseInt(prompt("enter in new grid size: ", "50")));
+    changeGridSize(doop);
 })
